@@ -1,0 +1,380 @@
+* {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  box-sizing: border-box;
+  font-family: "roboto";
+}
+body {
+  background-color: black;
+  color: white;
+}
+/* For Webkit browsers (Chrome, Safari, newer versions of Opera) */
+::-webkit-scrollbar {
+  width: 12px;
+  
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #727272;
+  border-radius: 8px;
+  border: 3px solid #121212;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #727272 #121212;
+}
+.nav {
+  display: flex;
+  /* align-items: center; */
+  padding: 5px 10px;
+  justify-content: space-between;
+  height: 60px;
+}
+.left {
+  width: 25vw;
+  background-color: #121212;
+  padding: 20px;
+  height: calc(100vh - 70px);
+  border-radius: 10px;
+  margin: 0 5px 0 10px;
+  position: relative;
+}
+
+.right {
+  width: 75vw;
+  background-color: #121212;
+  padding: 20px;
+  height: calc(100vh - 70px);
+  border-radius: 10px;
+  margin: 0 10px 0 5px;
+  position: relative;
+}
+
+.searchbox {
+  display: flex;
+  gap: 20px;
+  max-width: 70%;
+  min-width: 60%;
+  justify-content: center;
+}
+#home {
+  height: 100%; /* Fixed height */
+  width: 50px; /* Fixed width */
+  border-radius: 30px; /* Rounded edges */
+  border: none;
+  background-color: #282828;
+  padding: 10px;
+}
+
+#home img {
+  height: 100%; /* Adjusted to allow some margin */
+  width: 100%; /* Adjusted to allow some margin */
+}
+#home:hover {
+  scale: 1.1;
+}
+.nav img,
+.left img {
+  filter: invert(1);
+}
+
+.search {
+  display: flex;
+  padding: 15px;
+  width: 50%;
+  background-color: #282828;
+  border-radius: 40px;
+  transition: all 0.5s;
+}
+.search:hover {
+  background-color: #303030;
+}
+.search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+}
+.search input::placeholder {
+  color: white;
+}
+.search img {
+  height: 100%;
+  width: 50px;
+}
+#browse {
+  border-left: 1px solid white;
+}
+button {
+  padding: 10px 30px;
+  margin: 0 5px;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.top-right {
+  width: fit-content;
+}
+#signup {
+  background: transparent;
+  color: #8d8686;
+  transition: all 0.5s;
+}
+#signup:hover {
+  color: white;
+  scale: 1.1;
+}
+#login:hover {
+  background-color: rgb(221, 220, 220);
+  scale: 1.1;
+}
+.library {
+  min-height: 80%;
+}
+.left-top {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  padding: 5px 10px;
+  align-items: center;
+}
+
+.left-top h3 {
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.left-top img {
+  height: 100%;
+  margin-right: 10px;
+}
+
+#create {
+  padding: 5px 12px;
+  margin: 0;
+  height: auto;
+  border-radius: auto;
+  background: transparent;
+  color: #8d8686;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+#create:hover {
+  color: white;
+  transform: scale(1.1);
+  background-color: #282828;
+}
+.footer {
+  display: flex;
+  font-size: 11px;
+  position: absolute;
+  bottom: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+  font-weight: 400;
+  color: grey;
+  gap: 13px;
+}
+
+.footer a {
+  color: grey;
+  text-decoration: none;
+}
+.cardcontainer {
+  display: flex;
+  gap: 15px;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+  margin: 30px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.right > h2 {
+  margin-bottom: 10px;
+}
+.cardcontainer .cards {
+  /* border: 1px red solid; */
+  width: 250px;
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #282828;
+}
+
+.cards > * {
+  padding-top: 10px;
+}
+.cards img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 25px;
+}
+.cards {
+  position: relative;
+}
+.play {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background-color: #1ed760;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, top 0.5s, transform 0.2s, opacity 0.2s;
+  position: absolute;
+  top: 210px;
+  right: 20px;
+  opacity: 0;
+}
+
+.cards:hover .play {
+  opacity: 1;
+  top: 192px;
+}
+.play:hover {
+  background-color: #20ca5e;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.play img {
+  width: 40%;
+  object-fit: contain;
+}
+
+.playbar{
+  position: absolute;
+ width: 100%;
+ height: 5.5vh;
+ background-color: #1e1e1e; 
+ bottom: 0;
+ right: 0;
+ border-radius: 0 0 10px 10px;
+ padding-top: 12px;
+ display: flex;
+ gap: 10px;
+ /* justify-content: space-around; */
+}
+.songinfo{
+  width: 33%;
+  font-family: cursive;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.songbuttons{
+  height: 100%;
+  width: 33%;
+ display: flex;
+ justify-content: center;
+ gap: 30px;
+ justify-self: center;
+}
+.songtime{
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.songslist{
+  padding:20px  20px;
+  height: 58vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.songslist ul{
+  list-style: none;
+}
+.songslist ul li{
+  padding: 10px;
+  margin: 10px 0;
+  border: white 1px solid;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  transition: all 0.5s ease-in;
+}
+li img{
+  scale:1.4;
+}
+.playsong{
+  cursor:pointer;
+}
+.playsong:active{
+  scale: 1.2;
+}
+.info{
+  flex: 1;
+  padding: 10px;
+  
+}
+.artist{
+  font-weight: 400;
+  
+  font-family: cursive;
+}
+.songname{
+  text-transform: capitalize;
+  font-size: medium;
+  font-weight: 800;
+  
+  font-family: cursive;
+}
+.playbar img{
+  filter: invert(1);
+}
+
+.seekbar{
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  border: 1px white solid;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
+.circle{
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  transition: left 0.5s;
+  box-shadow:0 0 10px black;
+}
