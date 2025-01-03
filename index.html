@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="utility.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,6 +43,7 @@
             <img src="icons/library.svg" alt="library" />
             <h3>Your Library</h3>
             <button id="create">+</button>
+            <img src="icons/cross.svg" id="cross" alt="" />
           </div>
           <div class="songslist">
             <ul></ul>
@@ -82,36 +84,12 @@
         </div>
       </div>
       <div class="right">
-        <h2>Spotify Playlists</h2>
+        <div class="righttop">
+          <img src="icons/hamburger.svg" id="hamburger" alt="" />
+          <h2>Spotify Playlists</h2>
+        </div>
         <div class="cardcontainer">
-          <div class="cards">
-            <div class="play">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/4211/4211344.png"
-                alt=""
-              />
-            </div>
-            <img
-              src="https://i.scdn.co/image/ab67616d00001e02aad3f4b601ae8763b3fc4e88"
-              alt=""
-            />
-            <h3>GLORY</h3>
-            <p>Yo Yo Honey Singh</p>
-          </div>
-          <div class="cards">
-            <div class="play">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/4211/4211344.png"
-                alt=""
-              />
-            </div>
-            <img
-              src="https://i.scdn.co/image/ab67616d00001e02aad3f4b601ae8763b3fc4e88"
-              alt=""
-            />
-            <h3>GLORY</h3>
-            <p>Yo Yo Honey Singh</p>
-          </div>
+          
         </div>
         <div class="playbar">
           <div class="seekbar">
@@ -120,10 +98,16 @@
           <div class="songinfo"></div>
           <div class="songbuttons">
             <img src="icons/prev.svg" id="prev" alt="" />
-            <img src="icons/play.svg" id="play" alt=""/>
+            <img src="icons/play.svg" id="play" alt="" />
             <img src="icons/next.svg" id="next" alt="" />
           </div>
-          <div class="songtime"></div>
+          <div class="songdetails">
+            <div class="songtime"></div>
+            <div class="volume">
+              <img src="icons/volume-high.svg"  />
+              <div class="volumerange"><input type="range" name="volumerange" id="" value="100"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
