@@ -1,6 +1,8 @@
 let currentsong = new Audio();
 let songs = [];
 let folder ="";
+
+let currvol=1;
 async function getSongs() {
   songs=[];
   let a = await fetch( `http://127.0.0.1:5500/songs/${folder}/`);
@@ -54,13 +56,15 @@ for (let index = 0; index < as.length; index++) {
   
   if (element.href.startsWith("http://127.0.0.1:5500/songs/") && !element.href.endsWith(".mp3") ) {
     let name = element.querySelector(".name").innerHTML;
+    let response =await (await fetch(`http://127.0.0.1:5500/songs/${name}/info.json`)).json();
     cardsHTML += `
       <div class="cards">
         <div class="play">
           <img src="https://cdn-icons-png.flaticon.com/512/4211/4211344.png" alt="" />
         </div>
-        <img src="https://i.scdn.co/image/ab67616d00001e02aad3f4b601ae8763b3fc4e88" alt="" />
-        <h3>${name}</h3>
+        <img src="/songs/${name}/cover.jpg" alt="" />
+        <h3>${response.title}</h3>
+        <p>${response.description}</p>
       </div>`;
       console.log(name);
     
@@ -177,6 +181,7 @@ async function main() {
   document.querySelector(".volumerange input").addEventListener("change",(e)=>{
     // console.log(e.target.value);
     currentsong.volume= parseInt(e.target.value)/100;
+    currvol = currentsong.volume;
     let icon = document.querySelector(".volume>img");
     if(e.target.value==0){
       icon.src= "icons/mute.svg";
@@ -188,9 +193,26 @@ async function main() {
       icon.src="icons/volume.svg";
     }
   })
+  document.querySelector(".volume>img").addEventListener("click",(e)=>{
+    if(e.target.src.includes("mute.svg")){
+      currentsong.volume= currvol;
+      if(currvol>0.5)e.target.src= e.target.src.replace("mute.svg","volume-high.svg");
+      else if(currvol>0)e.target.src = e.target.src.replace("mute.svg","volume.svg")
+      document.querySelector(".volumerange>input").value = currvol*100;
+    }
+    else{
+      currvol = currentsong.volume;
+      currentsong.volume= 0;
+      e.target.src= e.target.src.replace("volume.svg","mute.svg");
+      e.target.src= e.target.src.replace("volume-high.svg","mute.svg");
+      document.querySelector(".volumerange>input").value = 0;
+    }
+  })
   Array.from(document.querySelectorAll(".cards .play")).forEach(element => {
     element.addEventListener("click",async ()=>{
       // console.log("clicked");
+      currentsong.pause();
+      play.src=play.src.replace("pause.svg","play.svg")
       folder = element.parentElement.querySelector("h3").innerHTML;
       // console.log(folder);
       await listsongs();

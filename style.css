@@ -219,10 +219,10 @@ button {
 }
 .cardcontainer {
   display: flex;
-  gap: 15px;
+  gap: 25px;
   flex-wrap: wrap;
   margin: 30px;
-  max-height: 80vh;
+  max-height: 71vh;
   overflow-y: auto;
   justify-content: flex-start;
   /* Add this to account for padding */
@@ -249,11 +249,13 @@ button {
 .cards > * {
   padding-top: 10px;
 }
-.cards img {
+.cards >img {
   width: 100%;
-  object-fit: contain;
+  height: 250px;
+  object-fit: cover;
   border-radius: 25px;
 }
+
 .play {
   width: 48px;
   height: 48px;
@@ -283,7 +285,7 @@ button {
 
 .play img {
   width: 40%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .playbar {
@@ -398,6 +400,9 @@ li img {
 }
 .volume:hover .volumerange{
   display: flex;
+}
+.volume>*{
+  cursor: pointer;
 }
 .circle {
   width: 13px;
